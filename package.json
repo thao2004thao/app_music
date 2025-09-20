@@ -11,9 +11,9 @@
   },
   "main": "background.js",
   "scripts": {
-    "start": "vue-cli-service electron:serve",
-    "build": "vue-cli-service electron:build",
-    "push-update": "vue-cli-service electron:build -- -p always",
+    "start": "node start-dev.js",
+    "build": "build.bat",
+    "push-update": "build.bat && vue-cli-service electron:build -- -p always",
     "deploy-steps": "git commit -am v1.2.1 && git tag v1.2.1 && git push --tags"
   },
   "dependencies": {
@@ -51,6 +51,7 @@
     "@vue/cli-plugin-typescript": "4.5.13",
     "@vue/cli-plugin-vuex": "4.5.13",
     "@vue/cli-service": "4.5.13",
+    "cross-env": "^10.0.0",
     "electron-devtools-installer": "3.2.0",
     "husky": "7.0.0",
     "prettier": "2.3.2",

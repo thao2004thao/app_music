@@ -30,16 +30,6 @@
           'sideNav-group'
         ]"
       >
-        <router-link to="/">
-          <img
-            title="FLBing"
-            class="icon"
-            src="@icon/meld.svg"
-          >
-          <p v-if="!isCollapsed">
-            Meld
-          </p>
-        </router-link>
       </div>
     </div>
     <div>
@@ -101,13 +91,6 @@ export default {
       this.UIcontrollerSetPropertyValue({
         property: 'currentPage',
         newValue: page
-      });
-    },
-    giveHope() {
-      this.pushNotification({
-        title: `Meld is still under development`,
-        subTitle: 'Coming in the next Release',
-        type: 'danger'
       });
     },
     refresh() {

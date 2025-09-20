@@ -24,28 +24,36 @@ module.exports = {
         name: 'Building FLB Music Player',
         color: '#0389ff'
       })
-    ]
+    ],
+    output: {
+      hashFunction: 'sha256'
+    }
   },
   pluginOptions: {
     electronBuilder: {
       nodeIntegration: true,
+      mainProcessFile: 'src/background.ts',
+      rendererProcessFile: 'src/main.ts',
       builderOptions: {
-        productName: 'FLB Music',
-        appId: 'com.flb.flbmusic',
-        productName: 'FLB Music',
+        productName: 'Music Player',
+        appId: 'com.ltam.music.player',
+        productName: 'Music Player',
         copyright: 'MIT',
         publish: [
           {
             provider: 'github',
-            owner: 'FLB-Music',
-            repo: 'FLB-Music-Player'
+            owner: 'Music-Player',
+            repo: 'Music-Player'
           }
         ],
         snap: {
-          title: 'FLB Music',
-          summary: 'A Beautiful and Feature Rich Music Player',
+          title: 'Music Player',
+          summary: 'Music Player',
           grade: 'stable'
         }
+      },
+      chainWebpackMainProcess: (config) => {
+        config.output.hashFunction('sha256');
       }
     }
   }

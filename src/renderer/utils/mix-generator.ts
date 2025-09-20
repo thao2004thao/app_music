@@ -34,8 +34,8 @@ export class MixGenerator {
       );
       if (favoriteTracks[0] && favoriteTracks[1]) {
         const mix: mixTyping = {
-          name: "Tracks you've fallen for 💘",
-          info: `Your Most Played tracks like 👉 | ${favoriteTracks[0].defaultTitle} |  and  | ${favoriteTracks[1].defaultTitle} |`,
+          name: "Tracks you've fallen for",
+          info: `Your Most Played tracks ${favoriteTracks[0].defaultTitle} |  and  | ${favoriteTracks[1].defaultTitle} |`,
           tracks: removeDuplicates(favoriteTracks, 'defaultTitle')
         };
         this.mixes.push(mix);
@@ -64,7 +64,7 @@ export class MixGenerator {
         ...secondArtistTracks
       ]);
       const mix: mixTyping = {
-        name: 'Power Duo 🎭',
+        name: 'Power Duo ',
         info: `Bangers from 🎤 ${twoRandomArtists[0]} and 🎤${twoRandomArtists[1]}`,
         tracks: mashedTracks
       };
@@ -85,8 +85,8 @@ export class MixGenerator {
     forgottenTracks = forgottenTracks.splice(0, 10);
     if (forgottenTracks.length > 0) {
       const mix: mixTyping = {
-        name: 'Tracks you might have forgotten 🤯',
-        info: `Remember 👉 ${forgottenTracks[0].defaultTitle}, ${forgottenTracks[1].defaultTitle} and others...`,
+        name: 'Tracks you might have forgotten ',
+        info: `Remember  ${forgottenTracks[0].defaultTitle}, ${forgottenTracks[1].defaultTitle} and others...`,
         tracks: forgottenTracks
       };
       this.mixes.push(mix);
@@ -99,7 +99,7 @@ export class MixGenerator {
     const topTenRecentlyAddedTracks = allTracksCopy.splice(0, 10);
     if (topTenRecentlyAddedTracks.length > 0) {
       const mix: mixTyping = {
-        name: 'Fresh and Juicy 🧃',
+        name: 'Fresh and Juicy ',
         info: `Newly added tracks like 👉 ${topTenRecentlyAddedTracks[0].defaultTitle}, ${topTenRecentlyAddedTracks[1].defaultTitle} and others...`,
         tracks: removeDuplicates(topTenRecentlyAddedTracks, 'defaultTitle')
       };

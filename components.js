@@ -54,7 +54,9 @@ glob('./src/**/*.vue', {}, (err, files) => {
     'PhTrashSimple',
     'PhXCircle',
     'PhUser',
-    'PhX'
+    'PhX',
+    'PhMinus',
+    'PhSquare'
   ];
   content += '\n// export component icons from phosphor-vue\n';
   for (let i = 0; i < icons.length; i += 1) {

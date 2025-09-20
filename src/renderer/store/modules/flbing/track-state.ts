@@ -7,7 +7,7 @@ export const states: BingTrackState[] = [
   },
   {
     code: 1,
-    description: 'Download Link Not Found 💀'
+    description: 'Download Link Not Found ..'
   },
   {
     code: 2,

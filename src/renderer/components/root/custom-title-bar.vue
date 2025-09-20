@@ -12,7 +12,7 @@
       >
         <base-icon
           class="icon"
-          icon="caret-down"
+          icon="minus"
           weight="regular"
           :size="18"
         />
@@ -23,7 +23,7 @@
       >
         <base-icon
           class="icon"
-          icon="caret-up"
+          icon="square"
           weight="regular"
           :size="18"
         />
