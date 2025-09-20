@@ -26,12 +26,12 @@
         class="selectedGroup bg1"
       >
         <div class="sliverBar">
-          <base-button
+          <!-- <base-button
             id="bingArtistBtn"
             img="@icon/flbing.svg"
             title="Bing this Artist"
             @click.native="bingThisArtist"
-          />
+          /> -->
           <div class="sliverBarFooter">
             <div class="groupedCard_info">
               <p class="groupedInfo_title">
@@ -112,7 +112,7 @@
                   v-for="(track, index) in artistTracks"
                   :key="track.path"
                   :index="index"
-                  :source="track"
+                  :track-info="track"
                 />
               </div>
             </div>

@@ -30,8 +30,10 @@ export class Settings {
     this.saveSettings();
   }
   addFolderToScan (folderPath: string) {
+    if (this.settings.foldersToScan.indexOf(folderPath) != -1) return false;
     this.settings.foldersToScan.push(folderPath);
     this.saveSettings();
+    return true;
   }
   removeFromScannedFolders (folderPath: string) {
     this.settings.foldersToScan.forEach((folder, index) => {

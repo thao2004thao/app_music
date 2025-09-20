@@ -71,7 +71,7 @@
               v-for="(track, index) in playlistsTracks"
               :key="track.fileLocation"
               :index="index"
-              :source="track"
+              :track-info="track"
             />
           </transition-group>
         </div>

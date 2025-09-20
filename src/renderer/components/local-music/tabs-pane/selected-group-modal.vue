@@ -49,7 +49,7 @@
         v-for="(track, index) in selectedGroup.tracks"
         :key="track.path"
         :index="index"
-        :source="track"
+        :track-info="track"
       />
     </div>
   </div>

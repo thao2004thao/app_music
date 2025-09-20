@@ -346,6 +346,7 @@ export default {
       sendMessageToNode('addScanFolder', '');
     },
     removeFromScannedFolders(path) {
+      console.log(path);
       sendMessageToNode('removeFromScannedFolders', path);
     },
     resetApp() {

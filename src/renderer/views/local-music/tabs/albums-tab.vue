@@ -73,7 +73,7 @@
             v-for="(track, index) in albumTracks"
             :key="track.path"
             :index="index"
-            :source="track"
+            :track-info="track"
           />
         </div>
       </div>

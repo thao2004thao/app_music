@@ -40,7 +40,7 @@
           <bing-completed-track
             v-for="track in flbingFolderTracks"
             :key="track.fileLocation"
-            :track="track"
+            :track-info="track"
           />
         </div>
       </div>

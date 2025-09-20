@@ -13,7 +13,7 @@
         <track-card
           v-for="track in searchResults.tracks"
           :key="track.fileLocation"
-          :source="track"
+          :track-info="track"
           :index="0"
         />
       </div>

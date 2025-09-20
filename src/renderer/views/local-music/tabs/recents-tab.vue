@@ -5,19 +5,14 @@
       class="centerContents"
       style="height: 100%"
     >
-      <img
-        width="300px"
-        src="@img/no_recents.svg"
-      >
-      <p style="font-family: inherit">
-        You still haven't played anything
-      </p>
+      <img width="300px" src="@img/no_recents.svg" />
+      <p style="font-family: inherit">You still haven't played anything</p>
     </div>
     <div @click="addTracksToQueue">
       <track-card
         v-for="track in recentlyPlayedTracks"
         :key="track.fileLocation"
-        :source="track"
+        :track-info="track"
         :index="0"
       />
     </div>
@@ -32,12 +27,7 @@ export default {
   data() {
     return {};
   },
-  watch: {
-    flipSortOrder() {
-      // Make It Work
-      this.recentlyPlayedTracks.reverse();
-    }
-  },
+
   computed: {
     recentlyPlayedTracks() {
       const { sortParameter } = this.$store.state;
@@ -49,6 +39,12 @@ export default {
     },
     flipSortOrder() {
       return this.$store.state.flipSortOrder;
+    }
+  },
+  watch: {
+    flipSortOrder() {
+      // Make It Work
+      this.recentlyPlayedTracks.reverse();
     }
   },
   methods: {
