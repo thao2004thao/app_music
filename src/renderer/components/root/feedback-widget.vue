@@ -46,34 +46,33 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
-
+import { mapMutations } from "vuex";
 export default {
-  name: 'FeedbackWidget',
+  name: "FeedbackWidget",
 
   data() {
     return {
       feedback: {
-        user: 'unknown',
-        title: '',
-        description: '',
-        state: 'pending'
-      }
+        user: "unknown",
+        title: "",
+        description: "",
+        state: "pending",
+      },
     };
   },
   methods: {
-    ...mapMutations(['UIcontrollerToggleProperty', 'pushNotification']),
+    ...mapMutations(["UIcontrollerToggleProperty", "pushNotification"]),
     async sendFeedback() {
-      this.feedback.user = localStorage.getItem('userID');
-      this.UIcontrollerToggleProperty('showFeedbackWidget');
+      this.feedback.user = localStorage.getItem("userID");
+      this.UIcontrollerToggleProperty("showFeedbackWidget");
       this.pushNotification({
-        title: 'Sending...',
-        subTitle: '',
-        type: 'normal'
+        title: "Sending...",
+        subTitle: "",
+        type: "normal",
       });
-      const endPoint =
-        this.feedbackType === 'request' ? 'feature-request' : 'bug-report';
-      const res = await fetch(`https://flb-server.herokuapp.com/${endPoint}`, {
+       const endPoint = this.feedbackType === 'request' ? 'feature-request' : 'bug-report';
+
+      const res = await fetch(`https://flb-server.onrender.com/${endPoint}`, {
         body: JSON.stringify(this.feedback),
         headers: {
           'Content-Type': 'application/json'
@@ -83,29 +82,29 @@ export default {
       if (res.status === 200) {
         this.pushNotification({
           title:
-            this.feedbackType === 'request'
-              ? 'Feature Request Sent'
-              : 'Bug Reported',
+            this.feedbackType === "request"
+              ? "Feature Request Sent"
+              : "Bug Reported",
           subTitle: "Awesome keep 'em coming",
-          type: 'success'
+          type: "success",
         });
       } else {
         this.pushNotification({
           title:
-            this.feedbackType === 'request'
-              ? 'Error sending Feature Request'
-              : 'Error sending Bug Report',
-          subTitle: '',
-          type: 'danger'
+            this.feedbackType === "request"
+              ? "Error sending Feature Request"
+              : "Error sending Bug Report",
+          subTitle: "",
+          type: "danger",
         });
       }
-      this.feedback.title = '';
-      this.feedback.description = '';
-    }
+      this.feedback.title = "";
+      this.feedback.description = "";
+    },
   },
   props: {
-    feedbackType: String
-  }
+    feedbackType: String,
+  },
 };
 </script>
 
