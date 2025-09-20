@@ -23,14 +23,14 @@
         </router-link>
       </div>
       <div
+      @click="giveHope()"
         id="FLBing"
         :class="[
           currentPage === 'FLBing' ? 'active-sideNav-group' : '',
           'sideNav-group'
         ]"
-        @click="giveHope()"
       >
-        <router-link to="">
+        <router-link to="/meld">
           <img
             title="FLBing"
             class="icon"
