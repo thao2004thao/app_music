@@ -19,40 +19,25 @@
   </div>
 </template>
 <script>
-import { sortArrayOfObjects } from '@/shared-utils';
-import { mapMutations } from 'vuex';
+import { mapMutations } from "vuex";
 
 export default {
-  name: 'RecentsTab',
+  name: "RecentsTab",
   data() {
     return {};
   },
 
   computed: {
     recentlyPlayedTracks() {
-      const { sortParameter } = this.$store.state;
-      const tracks = [
-        ...this.$store.state.TabsManager.tabsData.recentlyPlayedTracks
-      ];
-      sortArrayOfObjects(tracks, sortParameter);
-      return tracks;
+      return this.$store.state.TabsManager.tabsData.recentlyPlayedTracks;
     },
-    flipSortOrder() {
-      return this.$store.state.flipSortOrder;
-    }
-  },
-  watch: {
-    flipSortOrder() {
-      // Make It Work
-      this.recentlyPlayedTracks.reverse();
-    }
   },
   methods: {
-    ...mapMutations(['overWriteCustomQueue']),
+    ...mapMutations(["overWriteCustomQueue"]),
     addTracksToQueue() {
       this.overWriteCustomQueue(this.recentlyPlayedTracks);
-    }
-  }
+    },
+  },
 };
 </script>
 

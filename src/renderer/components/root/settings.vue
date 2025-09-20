@@ -1,9 +1,7 @@
 <template>
   <div class="Settings blurred_bg blur40">
     <div class="widget_header">
-      <h1 class="widget_title">
-        Settings
-      </h1>
+      <h1 class="widget_title">Settings</h1>
       <base-button
         icon="x"
         extra-class="shrink8 shrink8 pos-abs top5 right5"
@@ -22,7 +20,7 @@
               class="folderBox bg1"
             >
               <div>
-                <p>{{ folder.replace(/(.*)[\/\\]/, '') }}</p>
+                <p>{{ folder.replace(/(.*)[\/\\]/, "") }}</p>
                 <p style="font-family: inherit; font-size: 0.9rem">
                   {{ folder }}
                 </p>
@@ -54,19 +52,16 @@
                 :class="[
                   settings.defaultTab === tab.name ? 'defaultTab' : '',
                   'tabDiv',
-                  'bg2'
+                  'bg2',
                 ]"
                 @click="
                   setSettingValue({
                     property: 'defaultTab',
-                    newValue: tab.name
+                    newValue: tab.name,
                   })
                 "
               >
-                <base-icon
-                  class="icon"
-                  :icon="tab.icon"
-                />
+                <base-icon class="icon" :icon="tab.icon" />
                 <p>{{ tab.name }}</p>
               </div>
             </ul>
@@ -75,7 +70,7 @@
         <article
           :class="[
             settings.dynamicAccentColor ? 'fade_to_7 unclickable' : '',
-            'bg1'
+            'bg1',
           ]"
         >
           <h4>Accent Color 🖌</h4>
@@ -88,12 +83,12 @@
                 settings.accentColor == 'accent_' + index
                   ? 'active_colorDiv'
                   : '',
-                'colorDiv'
+                'colorDiv',
               ]"
               @click="
                 setSettingValue({
                   property: 'accentColor',
-                  newValue: 'accent_' + index
+                  newValue: 'accent_' + index,
                 })
               "
             />
@@ -102,17 +97,13 @@
         <div
           :class="[
             settings.dynamicAccentColor ? 'activeBtn' : '',
-            'switch bg1 ma10'
+            'switch bg1 ma10',
           ]"
           @click="toggleDynamicAccentColor"
         >
           <p>Dynamic Accent Color</p>
-          <p v-if="settings.dynamicAccentColor">
-            On
-          </p>
-          <p v-else>
-            Off
-          </p>
+          <p v-if="settings.dynamicAccentColor">On</p>
+          <p v-else>Off</p>
         </div>
       </section>
       <section>
@@ -122,7 +113,7 @@
             <div
               :class="[
                 settings.theme === 'fancy' ? 'activeSetting' : '',
-                'bg2'
+                'bg2',
               ]"
               @click="setSettingValue({ property: 'theme', newValue: 'fancy' })"
             >
@@ -137,7 +128,7 @@
             <div
               :class="[
                 settings.theme === 'black' ? 'activeSetting' : '',
-                'bg2'
+                'bg2',
               ]"
               @click="setSettingValue({ property: 'theme', newValue: 'black' })"
             >
@@ -146,7 +137,7 @@
             <div
               :class="[
                 settings.theme === 'light' ? 'activeSetting' : '',
-                'bg2'
+                'bg2',
               ]"
               @click="setSettingValue({ property: 'theme', newValue: 'light' })"
             >
@@ -156,37 +147,25 @@
         </article>
         <div class="grid2">
           <article class="bg1">
-            <h3 class="mb5">
-              Shortcuts ✂
-            </h3>
+            <h3 class="mb5">Shortcuts ✂</h3>
             <div class="pb5 mb5 border_split">
-              <p class="text-small-0">
-                Pause and Play
-              </p>
+              <p class="text-small-0">Pause and Play</p>
               <pre class="text-small-1">Space🔘</pre>
             </div>
             <div class="pb5 mb5 border_split">
-              <p class="text-small-0">
-                Next and Previous Track
-              </p>
-              <pre class="text-small-1">Arrows ◀▶   </pre>
+              <p class="text-small-0">Next/Previous Track</p>
+              <pre class="text-small-1">Arrows ◀ ▶   </pre>
             </div>
             <div class="pb5 mb5 border_split">
-              <p class="text-small-0">
-                Search Tracks
-              </p>
+              <p class="text-small-0">Search Tracks</p>
               <pre class="text-small-1">Tab 🧈</pre>
             </div>
           </article>
           <article class="bg1">
-            <h3 class="mb5">
-              About 🐲
-            </h3>
+            <h3 class="mb5">About 🐲</h3>
             <div class="infos">
               <div class="pb5 border_split mb5">
-                <p class="text-small-0">
-                  App Version 💽
-                </p>
+                <p class="text-small-0">App Version 💽</p>
                 <p class="text-small-1">
                   {{ appVersion }}
                 </p>
@@ -196,24 +175,22 @@
               <p class="text-small-1">Patrick Waweru</p>
             </div> -->
               <div class="pb5 border_split mb5">
-                <p class="text-small-0">
-                  Twitter🐦
-                </p>
+                <p class="text-small-0">Twitter🐦</p>
                 <a
                   target="_blank"
                   class="text-small-1"
                   href="https://twitter.com/PnTX10"
-                >@PnTX10</a>
+                  >@PnTX10</a
+                >
               </div>
               <div class="">
-                <p class="text-small-0">
-                  Email📬
-                </p>
+                <p class="text-small-0">Email📬</p>
                 <a
                   target="_blank"
                   class="text-small-1"
                   href="https://mail.google.com"
-                >pntx200@gmail.com</a>
+                  >pntx200@gmail.com</a
+                >
               </div>
             </div>
           </article>
@@ -222,61 +199,41 @@
           <div
             :class="[
               settings.desktopNotifications ? 'activeBtn' : '',
-              'switch bg1'
+              'switch bg1',
             ]"
             @click="
               setSettingValue({
                 property: 'desktopNotifications',
-                newValue: !settings.desktopNotifications
+                newValue: !settings.desktopNotifications,
               })
             "
           >
             <p>Notifications💬</p>
-            <p v-if="settings.desktopNotifications">
-              On
-            </p>
-            <p v-if="!settings.desktopNotifications">
-              Off
-            </p>
+            <p v-if="settings.desktopNotifications">On</p>
+            <p v-if="!settings.desktopNotifications">Off</p>
           </div>
           <div
             :class="[settings.videoSupport ? 'activeBtn' : '', 'switch bg1']"
             @click="toggleVideoSupport"
           >
             <p>Video Support ß</p>
-            <p v-if="settings.videoSupport">
-              On
-            </p>
-            <p v-if="!settings.videoSupport">
-              Off
-            </p>
+            <p v-if="settings.videoSupport">On</p>
+            <p v-if="!settings.videoSupport">Off</p>
           </div>
         </div>
         <div class="grid2 gap10 pa10">
-          <div
-            class="switch bg1"
-            @click="checkForUpdate"
-          >
+          <div class="switch bg1" @click="checkForUpdate">
             <p>Check for Update 🚀</p>
           </div>
           <div class="switch bg1">
-            <a
-              target="_blank"
-              href="https://t.me/flbmusiccommunity"
-            >
+            <a target="_blank" href="https://t.me/flbmusiccommunity">
               <p>Join us on Telegram 🦅</p>
             </a>
           </div>
-          <div
-            class="switch bg1"
-            @click="selectFeedbackType('request')"
-          >
+          <div class="switch bg1" @click="selectFeedbackType('request')">
             <p>Request a Feature 💎</p>
           </div>
-          <div
-            class="switch bg1"
-            @click="selectFeedbackType('issue')"
-          >
+          <div class="switch bg1" @click="selectFeedbackType('issue')">
             <p>Report a Bug 🐜</p>
           </div>
         </div>
@@ -295,37 +252,37 @@
 </template>
 
 <script>
-import { sendMessageToNode } from '@/renderer/utils/index';
-import { mapMutations } from 'vuex';
-import { ipcRenderer } from 'electron';
+import { sendMessageToNode } from "@/renderer/utils/index";
+import { mapMutations } from "vuex";
+import { ipcRenderer } from "electron";
 
 export default {
-  name: 'Settings',
+  name: "Settings",
 
   data() {
     return {
-      appVersion: '0.0.1',
+      appVersion: "0.0.1",
       tabs: [
-        { name: 'Home', icon: 'house' },
-        { name: 'Tracks', icon: 'music-note-simple' },
-        { name: 'Playlists', icon: 'playlist' },
-        { name: 'Artists', icon: 'user' },
-        { name: 'Albums', icon: 'disc' },
-        { name: 'Folders', icon: 'folder-simple' }
+        { name: "Home", icon: "house" },
+        { name: "Tracks", icon: "music-note-simple" },
+        { name: "Playlists", icon: "playlist" },
+        { name: "Artists", icon: "user" },
+        { name: "Albums", icon: "disc" },
+        { name: "Folders", icon: "folder-simple" },
       ],
       accentColors: [
-        '#0066ff',
-        '#7A86CB',
-        '#BA68C6',
-        '#FD8B64',
-        '#ACD580',
-        '#FCD450',
-        '#4DB6AC',
-        '#EE6390',
-        '#E57375',
-        '#FF8A66'
+        "#0066ff",
+        "#7A86CB",
+        "#BA68C6",
+        "#FD8B64",
+        "#ACD580",
+        "#FCD450",
+        "#4DB6AC",
+        "#EE6390",
+        "#E57375",
+        "#FF8A66",
       ],
-      feedbackType: 'issue'
+      feedbackType: "issue",
     };
   },
   computed: {
@@ -334,63 +291,63 @@ export default {
     },
     showFeedbackWidget() {
       return this.$store.state.UIController.UIProperties.showFeedbackWidget;
-    }
+    },
   },
   methods: {
     ...mapMutations([
-      'setSettingValue',
-      'UIcontrollerToggleProperty',
-      'UIcontrollerSetPropertyValue'
+      "setSettingValue",
+      "UIcontrollerToggleProperty",
+      "UIcontrollerSetPropertyValue",
     ]),
     addFolder() {
-      sendMessageToNode('addScanFolder', '');
+      sendMessageToNode("addScanFolder", "");
     },
     removeFromScannedFolders(path) {
       console.log(path);
-      sendMessageToNode('removeFromScannedFolders', path);
+      sendMessageToNode("removeFromScannedFolders", path);
     },
     resetApp() {
-      localStorage.removeItem('downloadedArtists');
-      localStorage.removeItem('lyrics');
-      sendMessageToNode('resetApp');
+      localStorage.removeItem("downloadedArtists");
+      localStorage.removeItem("lyrics");
+      sendMessageToNode("resetApp");
     },
     checkForUpdate() {
-      console.log('Checking');
-      sendMessageToNode('checkForUpdate');
+      console.log("Checking");
+      sendMessageToNode("checkForUpdate");
     },
     toggleVideoSupport() {
       this.setSettingValue({
-        property: 'videoSupport',
-        newValue: !this.settings.videoSupport
+        property: "videoSupport",
+        newValue: !this.settings.videoSupport,
       });
       console.log(this.settings.videoSupport);
-      sendMessageToNode('toggleVideoSupport');
+      sendMessageToNode("toggleVideoSupport");
     },
     toggleDynamicAccentColor() {
       console.log(this.settings.dynamicAccentColor);
       this.setSettingValue({
-        property: 'dynamicAccentColor',
-        newValue: !this.settings.dynamicAccentColor
+        property: "dynamicAccentColor",
+        newValue: !this.settings.dynamicAccentColor,
       });
       if (!this.settings.dynamicAccentColor) {
-        const app = document.querySelector('#app');
-        app.style.removeProperty('--accentColor', `#0066ff`);
+        const app = document.querySelector("#app");
+        app.style.removeProperty("--accentColor", `#0066ff`);
       }
     },
     selectFeedbackType(type) {
       this.feedbackType = type;
       this.UIcontrollerSetPropertyValue({
-        property: 'showFeedbackWidget',
-        newValue: true
+        property: "showFeedbackWidget",
+        newValue: true,
       });
-    }
+    },
   },
   mounted() {
-    ipcRenderer.send('requestVersion');
-    ipcRenderer.on('appVersion', (e, version) => {
+    ipcRenderer.send("requestVersion");
+    ipcRenderer.on("appVersion", (e, version) => {
       this.appVersion = version;
     });
-  }
+  },
 };
 </script>
 
@@ -400,7 +357,7 @@ export default {
   overflow: hidden;
   top: 40px;
   left: 10px;
-  height: 91.5%;
+  height: 90%;
   width: 97%;
   z-index: 50;
   border: 1px solid rgba(255, 255, 255, 0.315);
@@ -533,7 +490,7 @@ export default {
   width: 70px !important;
   padding: 10px;
   &:hover {
-    img {
+    svg {
       transform: translateY(10px) scale(1.3);
     }
     p {
