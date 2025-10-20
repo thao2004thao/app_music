@@ -34,7 +34,6 @@ Clone the project
 ```
 
 ### **2. Backend (Main Process)**
- Note: rảnh thì tìm hiểu main process là gì, renderer process là gì, rồi chúng trao gọi qua lại nhau như nào, cách gửi/nhận message, giao tiếp vs nhau ...
 
 - **📁 `src/main/modules/`**: Các module quản lý core logic
   - `FilesTracker.ts`: Theo dõi và quản lý file nhạc
